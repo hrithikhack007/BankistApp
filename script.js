@@ -26,7 +26,7 @@ const account1 = {
     '2021-07-31T10:51:36.790Z',
   ],
   currency: 'USD',
-  locale: 'en-IN', // de-DE
+  locale: 'en-US', // de-DE
 };
 
 const account2 = {
@@ -233,7 +233,7 @@ const makeUsernames = function (accs) {
 makeUsernames(accounts);
 // console.log(accounts);
 let currentUser, timer;
-btnLogin.addEventListener('click', function (e) {
+btnLogin.addEventListener('click touchstart', function (e) {
   e.preventDefault();
   currentUser = accounts.find(acc => acc.userName === inputLoginUsername.value);
   // console.log(currentUser);
@@ -275,7 +275,7 @@ btnLogin.addEventListener('click', function (e) {
   // labelDate.textContent = date;
 });
 
-btnTransfer.addEventListener('click', function (e) {
+btnTransfer.addEventListener('click touchstart', function (e) {
   e.preventDefault();
 
   const amount = Number(inputTransferAmount.value);
@@ -307,7 +307,7 @@ btnTransfer.addEventListener('click', function (e) {
   inputTransferAmount.blur();
 });
 
-btnLoan.addEventListener('click', function (e) {
+btnLoan.addEventListener('click touchstart', function (e) {
   e.preventDefault();
 
   const amount = Number(inputLoanAmount.value);
@@ -327,7 +327,7 @@ btnLoan.addEventListener('click', function (e) {
   inputLoanAmount.blur();
 });
 
-btnClose.addEventListener('click', function (e) {
+btnClose.addEventListener('click touchstart', function (e) {
   e.preventDefault();
 
   if (
@@ -348,7 +348,7 @@ btnClose.addEventListener('click', function (e) {
 
 let sorted = false;
 
-btnSort.addEventListener('click', function (e) {
+btnSort.addEventListener('click touchstart', function (e) {
   e.preventDefault();
   display(currentUser, !sorted);
   sorted = !sorted;
@@ -367,6 +367,10 @@ containerApp.style.opacity = 0;
 
 const radnomNum = (min, max) =>
   Math.trunc(Math.random() * (max + 1 - min) + 1) + (min - 1);
+
+// for (let i = 0; i < 100; i++) {
+//   console.log(radnomNum(100, 250), radnomNum(100, 250), radnomNum(100, 250));
+// }
 
 // for (let i = 0; i < 100; i++) {
 //   console.log(radnomNum(10, 20));
